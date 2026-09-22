@@ -5,8 +5,28 @@ Benchmark voor speech-to-text post-processing modellen. Je stuurt dezelfde trans
 Dit is hoe je het draait:
 
 ```
-node bench.mjs --provider groq --models llama-3.3-70b-versatile
+node bench.mjs --provider groq --models openai/gpt-oss-120b
 ```
+
+## Resultaten
+
+Laatste run: 22 september 2026, via Groq, 42 tests per model met de prompt uit `prompt.txt`.
+
+![gpt-oss-120b 97.6%](https://img.shields.io/badge/gpt--oss--120b-97.6%25-brightgreen?logo=openai)
+![gpt-oss-20b 92.9%](https://img.shields.io/badge/gpt--oss--20b-92.9%25-green?logo=openai)
+![16 talen](https://img.shields.io/badge/talen-16-blue)
+![provider Groq](https://img.shields.io/badge/provider-Groq-orange?logo=groq)
+
+![Score per model](chart-models.svg)
+
+| Model | Score | Geslaagd | Gem. latency |
+|---|---|---|---|
+| `openai/gpt-oss-120b` | 97,6% | 41/42 | 1022 ms |
+| `openai/gpt-oss-20b` | 92,9% | 39/42 | 752 ms |
+
+![Score per taal](chart-langs.svg)
+
+Wat opviel: geen enkel model volgt de Helium-regel, dus bij een Helium-venster krijg je opgeschoonde tekst in plaats van `NULL`. Verder zet het kleine model `five dollars` niet om naar `$5` en kapt het een testmail halverwege af. Alle 16 geteste talen scoren verder 100%, behalve Engels door deze drie fails.
 
 ## Wat je nodig hebt
 
@@ -134,6 +154,7 @@ Timeouts bij trage modellen: verhoog `--timeout`, bijvoorbeeld `--timeout 120`.
 ## Bestanden
 
 - `bench.mjs`: de benchmark zelf
+- `chart.mjs`: maakt `chart-models.svg` en `chart-langs.svg` uit `results.json` (`node chart.mjs`)
 - `prompt.txt`: de geteste systeem-prompt
 - `langs.mjs`: Handy-talen en het kernset
 - `cases.mjs`: strikte tests en smoke-teksten per taal
