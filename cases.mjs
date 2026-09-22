@@ -1,20 +1,19 @@
-// Testcases voor de post-processing benchmark.
+// Test cases for the post-processing benchmark.
 //
-// Twee soorten:
-// - DEEP_CASES: strikte controles per prompt-regel, vooral en/nl plus
-//   de/fr/es/it/pt. Elke check telt mee voor de score.
-// - SMOKE_RAW: een korte ruwe transcriptie per Handy-taal. Daarop gelden
-//   automatische controles (geen filler, geen code fences, niet leeg).
-//   Smoke-tests bewijzen dat een model de taal aankan zonder te crashen,
-//   te weigeren of naar het Engels te vluchten. De volledige output staat
-//   in results.json voor handmatige controle.
+// Two kinds:
+// - DEEP_CASES: strict checks per prompt rule, mainly en/nl plus
+//   de/fr/es/it/pt. Every check counts toward the score.
+// - SMOKE_RAW: one short raw transcript per Handy language. Automatic
+//   checks apply (no filler, no code fences, not empty). Smoke tests prove
+//   a model can handle the language without crashing, refusing, or fleeing
+//   to English. Full output is in results.json for manual review.
 //
-// Check-velden per testcase:
-//   contain: substrings die in de output moeten staan
-//   notContain: substrings die er niet in mogen staan
-//   match: regex-strings (multiline-vlag staat al aan, geen inline-vlaggen)
-//   notMatch: regex-strings die niet mogen matchen
-//   exact: output moet na trimmen exact hieraan gelijk zijn
+// Check fields per test case:
+//   contain: substrings that must appear in the output
+//   notContain: substrings that must not appear
+//   match: regex strings (multiline flag is already on, no inline flags)
+//   notMatch: regex strings that must not match
+//   exact: output must equal this after trimming
 
 export const DEEP_CASES = [
   {
@@ -183,9 +182,9 @@ export const DEEP_CASES = [
   },
 ];
 
-// Korte ruwe transcriptie per Handy-taal voor de smoke-test.
-// Bewust overal met um/uh als filler, zodat dezelfde automatische
-// controles voor elke taal gelden: filler weg, geen code fences, niet leeg.
+// One short raw transcript per Handy language for the smoke test.
+// All use um/uh as filler on purpose, so the same automatic checks apply
+// to every language: filler gone, no code fences, not empty.
 export const SMOKE_RAW = {
   "en": "um hello how are you today uh thanks",
   "zh": "um 你好今天怎么样 uh 谢谢",

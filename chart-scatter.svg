@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="420" role="img">
+<rect width="660" height="420" fill="#ffffff" rx="8"/>
+<text x="24" y="30" font-size="17" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">Verbatim Bench: accuracy vs speed</text>
+<text x="24" y="52" font-size="12" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">42 tests per model · groq · 2026-09-22</text>
+<line x1="56" y1="372" x2="490" y2="372" stroke="#eaeef2"/>
+<text x="48" y="376" font-size="11" text-anchor="end" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">87%</text>
+<line x1="56" y1="296.50000000000006" x2="490" y2="296.50000000000006" stroke="#eaeef2"/>
+<text x="48" y="300.50000000000006" font-size="11" text-anchor="end" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">90%</text>
+<line x1="56" y1="220.99999999999986" x2="490" y2="220.99999999999986" stroke="#eaeef2"/>
+<text x="48" y="224.99999999999986" font-size="11" text-anchor="end" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">94%</text>
+<line x1="56" y1="145.49999999999994" x2="490" y2="145.49999999999994" stroke="#eaeef2"/>
+<text x="48" y="149.49999999999994" font-size="11" text-anchor="end" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">97%</text>
+<line x1="56" y1="70" x2="490" y2="70" stroke="#eaeef2"/>
+<text x="48" y="74" font-size="11" text-anchor="end" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100%</text>
+<text x="56" y="392" font-size="11" text-anchor="middle" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">0ms</text>
+<text x="164.5" y="392" font-size="11" text-anchor="middle" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">281ms</text>
+<text x="273" y="392" font-size="11" text-anchor="middle" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">562ms</text>
+<text x="381.5" y="392" font-size="11" text-anchor="middle" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">843ms</text>
+<text x="490" y="392" font-size="11" text-anchor="middle" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">1124ms</text>
+<text x="273" y="412" font-size="11" text-anchor="middle" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">avg latency per test</text>
+<circle cx="346.3" cy="235.9" r="13" fill="#ff4d00" opacity="0.85"/>
+<text x="346.3" y="235.94" font-size="10" font-weight="700" text-anchor="middle" fill="#ffffff" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">M1</text>
+<circle cx="450.5" cy="125.3" r="13" fill="#ff4d00" opacity="0.85"/>
+<text x="450.5" y="125.34" font-size="10" font-weight="700" text-anchor="middle" fill="#ffffff" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">M2</text>
+<circle cx="506" cy="80" r="7" fill="#ff4d00"/>
+<text x="520" y="84" font-size="12" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">groq</text>
+<text x="500" y="104" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">M1 = openai/gpt-oss-20b</text>
+<text x="500" y="122" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">M2 = openai/gpt-oss-120b</text>
+</svg>

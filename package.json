@@ -1,13 +1,15 @@
 {
-  "name": "sst-process-bench",
-  "version": "0.1.0",
-  "description": "Benchmark voor speech-to-text AI post-processing modellen (Groq, OpenRouter, ...). Nul dependencies.",
+  "name": "verbatim-bench",
+  "version": "0.3.0",
+  "description": "Verbatim Bench: benchmark for speech-to-text AI post-processing models (Groq, OpenRouter, ...). Zero dependencies.",
   "type": "module",
   "bin": {
+    "verbatim-bench": "./bench.mjs",
     "sst-process-bench": "./bench.mjs"
   },
   "scripts": {
     "bench": "node bench.mjs",
+    "charts": "node chart.mjs",
     "self-test": "node bench.mjs --self-test"
   },
   "engines": {

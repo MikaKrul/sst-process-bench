@@ -1,86 +1,85 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="660" height="838" role="img">
-<style>text{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}</style>
 <rect width="660" height="838" fill="#ffffff" rx="8"/>
-<text x="24" y="30" font-size="17" font-weight="700" fill="#1f2328">sst-process-bench: score per taal</text>
-<text x="24" y="52" font-size="12" fill="#57606a">alle modellen samen · 16 talen · 2026-09-22</text>
-<text x="24" y="97" font-size="13" fill="#1f2328">nl</text>
+<text x="24" y="30" font-size="17" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">Verbatim Bench: score per language</text>
+<text x="24" y="52" font-size="12" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">all models combined · 16 languages · 2026-09-22</text>
+<text x="24" y="97" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">nl</text>
 <rect x="210" y="78" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="78" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="97" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="113" font-size="11" fill="#57606a">18/18</text>
-<text x="24" y="143" font-size="13" fill="#1f2328">de</text>
+<text x="520" y="97" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="113" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">18/18</text>
+<text x="24" y="143" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">de</text>
 <rect x="210" y="124" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="124" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="143" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="159" font-size="11" fill="#57606a">6/6</text>
-<text x="24" y="189" font-size="13" fill="#1f2328">fr</text>
+<text x="520" y="143" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="159" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">6/6</text>
+<text x="24" y="189" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">fr</text>
 <rect x="210" y="170" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="170" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="189" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="205" font-size="11" fill="#57606a">4/4</text>
-<text x="24" y="235" font-size="13" fill="#1f2328">es</text>
+<text x="520" y="189" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="205" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">4/4</text>
+<text x="24" y="235" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">es</text>
 <rect x="210" y="216" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="216" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="235" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="251" font-size="11" fill="#57606a">4/4</text>
-<text x="24" y="281" font-size="13" fill="#1f2328">it</text>
+<text x="520" y="235" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="251" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">4/4</text>
+<text x="24" y="281" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">it</text>
 <rect x="210" y="262" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="262" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="281" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="297" font-size="11" fill="#57606a">4/4</text>
-<text x="24" y="327" font-size="13" fill="#1f2328">pt</text>
+<text x="520" y="281" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="297" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">4/4</text>
+<text x="24" y="327" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">pt</text>
 <rect x="210" y="308" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="308" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="327" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="343" font-size="11" fill="#57606a">4/4</text>
-<text x="24" y="373" font-size="13" fill="#1f2328">ja</text>
+<text x="520" y="327" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="343" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">4/4</text>
+<text x="24" y="373" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">ja</text>
 <rect x="210" y="354" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="354" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="373" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="389" font-size="11" fill="#57606a">2/2</text>
-<text x="24" y="419" font-size="13" fill="#1f2328">zh-Hans</text>
+<text x="520" y="373" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="389" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">2/2</text>
+<text x="24" y="419" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">zh-Hans</text>
 <rect x="210" y="400" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="400" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="419" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="435" font-size="11" fill="#57606a">2/2</text>
-<text x="24" y="465" font-size="13" fill="#1f2328">ar</text>
+<text x="520" y="419" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="435" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">2/2</text>
+<text x="24" y="465" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">ar</text>
 <rect x="210" y="446" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="446" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="465" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="481" font-size="11" fill="#57606a">2/2</text>
-<text x="24" y="511" font-size="13" fill="#1f2328">ru</text>
+<text x="520" y="465" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="481" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">2/2</text>
+<text x="24" y="511" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">ru</text>
 <rect x="210" y="492" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="492" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="511" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="527" font-size="11" fill="#57606a">2/2</text>
-<text x="24" y="557" font-size="13" fill="#1f2328">pl</text>
+<text x="520" y="511" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="527" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">2/2</text>
+<text x="24" y="557" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">pl</text>
 <rect x="210" y="538" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="538" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="557" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="573" font-size="11" fill="#57606a">2/2</text>
-<text x="24" y="603" font-size="13" fill="#1f2328">tr</text>
+<text x="520" y="557" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="573" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">2/2</text>
+<text x="24" y="603" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">tr</text>
 <rect x="210" y="584" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="584" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="603" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="619" font-size="11" fill="#57606a">2/2</text>
-<text x="24" y="649" font-size="13" fill="#1f2328">uk</text>
+<text x="520" y="603" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="619" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">2/2</text>
+<text x="24" y="649" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">uk</text>
 <rect x="210" y="630" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="630" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="649" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="665" font-size="11" fill="#57606a">2/2</text>
-<text x="24" y="695" font-size="13" fill="#1f2328">cs</text>
+<text x="520" y="649" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="665" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">2/2</text>
+<text x="24" y="695" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">cs</text>
 <rect x="210" y="676" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="676" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="695" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="711" font-size="11" fill="#57606a">2/2</text>
-<text x="24" y="741" font-size="13" fill="#1f2328">sv</text>
+<text x="520" y="695" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="711" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">2/2</text>
+<text x="24" y="741" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">sv</text>
 <rect x="210" y="722" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="722" width="300" height="26" fill="#2da44e" rx="4"/>
-<text x="520" y="741" font-size="13" font-weight="700" fill="#1f2328">100.0%</text>
-<text x="520" y="757" font-size="11" fill="#57606a">2/2</text>
-<text x="24" y="787" font-size="13" fill="#1f2328">en</text>
+<text x="520" y="741" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">100.0%</text>
+<text x="520" y="757" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">2/2</text>
+<text x="24" y="787" font-size="13" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">en</text>
 <rect x="210" y="768" width="300" height="26" fill="#eaeef2" rx="4"/>
 <rect x="210" y="768" width="254" height="26" fill="#7ab648" rx="4"/>
-<text x="520" y="787" font-size="13" font-weight="700" fill="#1f2328">84.6%</text>
-<text x="520" y="803" font-size="11" fill="#57606a">22/26</text>
+<text x="520" y="787" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">84.6%</text>
+<text x="520" y="803" font-size="11" fill="#57606a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">22/26</text>
 </svg>

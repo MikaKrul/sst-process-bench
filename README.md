@@ -1,161 +1,197 @@
-# sst-process-bench
+# Verbatim Bench
 
-Benchmark voor speech-to-text post-processing modellen. Je stuurt dezelfde transcript-cleaning prompt naar elk model en ziet welk model de regels echt volgt.
+Benchmark for speech-to-text post-processing models. It sends the same transcript-cleaning prompt to every model and shows which one actually follows the rules.
 
-Dit is hoe je het draait:
+Run it like this:
 
 ```
 node bench.mjs --provider groq --models openai/gpt-oss-120b
 ```
 
-## Resultaten
+## Results
 
-Laatste run: 22 september 2026, via Groq, 42 tests per model met de prompt uit `prompt.txt`.
+Latest run: 22 September 2026, via Groq, 42 tests per model with the prompt from `prompt.txt`.
 
 ![gpt-oss-120b 97.6%](https://img.shields.io/badge/gpt--oss--120b-97.6%25-brightgreen?logo=openai)
 ![gpt-oss-20b 92.9%](https://img.shields.io/badge/gpt--oss--20b-92.9%25-green?logo=openai)
-![16 talen](https://img.shields.io/badge/talen-16-blue)
+![16 languages](https://img.shields.io/badge/languages-16-blue)
 ![provider Groq](https://img.shields.io/badge/provider-Groq-orange?logo=groq)
 
 ![Score per model](chart-models.svg)
 
-| Model | Score | Geslaagd | Gem. latency |
+| Model | Score | Passed | Avg latency |
 |---|---|---|---|
-| `openai/gpt-oss-120b` | 97,6% | 41/42 | 1022 ms |
-| `openai/gpt-oss-20b` | 92,9% | 39/42 | 752 ms |
+| `openai/gpt-oss-120b` | 97.6% | 41/42 | 1022 ms |
+| `openai/gpt-oss-20b` | 92.9% | 39/42 | 752 ms |
 
-![Score per taal](chart-langs.svg)
+![Accuracy vs speed](chart-scatter.svg)
 
-Wat opviel: geen enkel model volgt de Helium-regel, dus bij een Helium-venster krijg je opgeschoonde tekst in plaats van `NULL`. Verder zet het kleine model `five dollars` niet om naar `$5` en kapt het een testmail halverwege af. Alle 16 geteste talen scoren verder 100%, behalve Engels door deze drie fails.
+![Score per language](chart-langs.svg)
 
-## Wat je nodig hebt
+What stood out: no model follows the Helium rule, so with a Helium window you get cleaned text instead of `NULL`. The small model also leaves `five dollars` unconverted and cuts a test email off halfway. Every other language scores 100%.
 
-Alleen Node 18 of nieuwer. Er is niets te installeren: geen `npm install`, geen dependencies. Check je versie met `node --version`.
+## Requirements
 
-Je hebt een API-key nodig van een provider naar keuze. De benchmark praat met elke OpenAI-compatible API.
+Only Node 18 or newer. Nothing to install: no `npm install`, no dependencies. Check with `node --version`.
 
-## Snel starten
+You need an API key from a provider of your choice. The benchmark talks to any OpenAI-compatible API.
 
-Zet je key als env-var (PowerShell):
+## Quick start
+
+Set your key as an env var (PowerShell):
 
 ```
 $env:GROQ_API_KEY = "gsk-..."
-node bench.mjs --provider groq --models llama-3.3-70b-versatile
+node bench.mjs --provider groq --models openai/gpt-oss-120b
 ```
 
-Met OpenRouter:
+With OpenRouter:
 
 ```
 $env:OPENROUTER_API_KEY = "sk-or-..."
 node bench.mjs --provider openrouter --all
 ```
 
-Op Linux/macOS gebruik je `export GROQ_API_KEY="gsk-..."` in plaats van `$env:`.
+On Linux/macOS use `export GROQ_API_KEY="gsk-..."` instead of `$env:`.
 
-Wil je de key niet in je shell-geschiedenis, zet hem in een bestand en gebruik `--api-key-file key.txt`. Dat bestand staat in `.gitignore`, dus je commit het niet per ongeluk.
+To keep the key out of your shell history, put it in a file and use `--api-key-file key.txt`. That file is in `.gitignore`, so you will not commit it by accident.
 
-## Wat de benchmark test
+## What the benchmark tests
 
-Standaard draait hij 42 tests: 26 strikte tests plus een smoke-test voor 16 kerntalen. Elke strikte test controleert een of meer regels uit de prompt in `prompt.txt`:
+The default run is 42 tests: 26 strict tests plus a smoke test for 16 core languages. Each strict test checks one or more rules from the prompt in `prompt.txt`:
 
-- filler verwijderen (`um`, `ehm`, `zeg maar`)
-- gesproken getallen omzetten (`vijf euro` naar `€5`, `ten percent` naar `10%`)
-- gesproken operatoren (`plus` naar `+`, `keer` naar `*`)
-- lijsten met bullets, e-mails netjes opmaken, adressen als `jan@voorbeeld.nl`
-- `new line` en `nieuwe alinea` omzetten naar regeleinden
-- gesproken leestekens en emoji (`fire emoji` naar 🔥)
-- de Helium-regel: met een vensternaam als `Helium - voice notes` moet de output exact `NULL` zijn
-- alleen de opgeschoonde tekst teruggeven, zonder markdown of uitleg
+- removing filler (`um`, `ehm`, `zeg maar`)
+- converting spoken numbers (`vijf euro` to `€5`, `ten percent` to `10%`)
+- converting spoken operators (`plus` to `+`, `keer` to `*`)
+- bullet lists, clean email formatting, addresses like `jan@voorbeeld.nl`
+- turning `new line` and `nieuwe alinea` into line breaks
+- spoken punctuation and emoji (`fire emoji` to 🔥)
+- the Helium rule: with a window name like `Helium - voice notes` the output must be exactly `NULL`
+- returning only the cleaned text, no markdown or commentary
 
-De smoke-test stuurt per taal een korte transcriptie met filler en checkt vier dingen: geen filler meer, geen code fences, niet leeg, geen crash of weigering. De volledige output per taal staat in `results.json`, zodat je zelf kunt beoordelen of de taal behouden bleef.
+The smoke test sends a short transcript with filler per language and checks four things: filler gone, no code fences, not empty, no crash or refusal. Full output per language is in `results.json`, so you can judge language preservation yourself.
 
-## Talen
+## Languages
 
-De taallijst komt uit Handy (`cjpais/handy`, `src/lib/constants/languages.ts`). De standaardrun dekt en, nl, de, fr, es, it, pt, ja, zh-Hans, ar, ru, pl, tr, uk, cs en sv. Met `--all-langs` test je alle 100+ Handy-talen. Dat kost meer calls: 1 model x 128 tests.
+The language list comes from Handy (`cjpais/handy`, `src/lib/constants/languages.ts`). The default run covers en, nl, de, fr, es, it, pt, ja, zh-Hans, ar, ru, pl, tr, uk, cs and sv. With `--all-langs` you test all 100+ Handy languages. That costs more calls: 1 model x 128 tests.
 
-## Handige commando's
+## Keys, providers and new models
 
-Beschikbare modellen bekijken:
+Before each run the bench validates every configured key and shows which providers work:
+
+```
+node bench.mjs --all-providers
+```
+
+It also compares the models it finds with `models-known.json`. If a provider added models since your last run, it lists them and asks whether to test them too. Pass `--yes` to accept without asking (used in CI), or `--all` to test everything.
+
+Free Groq models are all covered this way: `--all` tests every chat model on your key. STT, TTS and guard models are skipped unless you pass `--include-non-chat`.
+
+## Useful commands
+
+Show available models:
 
 ```
 node bench.mjs --provider groq --list-models
 ```
 
-Twee modellen vergelijken op Nederlands en Engels:
+Compare two models on Dutch and English:
 
 ```
-node bench.mjs --provider groq --models llama-3.3-70b-versatile,llama-3.1-8b-instant --lang nl,en
+node bench.mjs --provider groq --models openai/gpt-oss-120b,openai/gpt-oss-20b --lang nl,en
 ```
 
-Alles testen bij OpenRouter (duur, elke gevonden model-id doet alle tests):
+Test everything at OpenRouter (slow, every model id runs all tests):
 
 ```
 node bench.mjs --provider openrouter --all --all-langs
 ```
 
-Eerst kijken wat een run zou doen, zonder API-calls:
+See what a run would do, without API calls:
 
 ```
-node bench.mjs --provider groq --models llama-3.3-70b-versatile --dry-run
+node bench.mjs --provider groq --models openai/gpt-oss-120b --dry-run
 ```
 
-Checken of de scoring zelf klopt, zonder key:
+Check the scoring itself, without a key:
 
 ```
 node bench.mjs --self-test
 ```
 
-## Alle opties
+Regenerate the charts from existing results:
 
-| Optie | Wat het doet |
+```
+node chart.mjs results.json
+```
+
+## All options
+
+| Option | What it does |
 |---|---|
-| `--provider NAME` | `groq`, `openrouter`, `openai`, `cerebras`, `zai` of `custom`. Zonder vlag kiest hij de provider waarvoor een env-var staat, anders `groq`. |
-| `--api-key XXX` | Key direct meegeven. Gaat voor op env-vars. |
-| `--api-key-file F` | Key uit een bestand lezen. |
-| `--base-url URL` | Eigen endpoint, bijvoorbeeld een lokale server. Combineer met `--provider custom`. |
-| `--models a,b,c` | Welke modellen. Zonder vlag probeert hij `/models` en valt terug op bekende defaults. |
-| `--all` | Alle modellen van `/models` testen. |
-| `--list-models` | Modellen tonen en stoppen. |
-| `--lang nl,en` | Alleen deze talen testen. |
-| `--all-langs` | Alle Handy-talen testen. |
-| `--deep-only` | Smoke-tests overslaan. |
-| `--prompt-file F` | Eigen systeem-prompt gebruiken (default: `prompt.txt`). `${output}` wordt genegeerd, `${active_window}` wordt ingevuld. |
-| `--active-window S` | Waarde voor `${active_window}` (default: `VS Code`). |
-| `--concurrency N` | Aantal parallelle requests (default: 3). |
-| `--timeout S` | Timeout per request in seconden (default: 60). |
-| `--retries N` | Retries bij 429/5xx met backoff (default: 2). |
-| `--out-json F` | JSON-resultaat (default: `results.json`). |
-| `--out-md F` | Markdown-ranking (default: `results.md`). |
-| `--no-out` | Niets wegschrijven. |
-| `--verbose` | Toon elke model-output tijdens de run. |
+| `--provider NAME` | `groq`, `openrouter`, `openai`, `cerebras`, `zai` or `custom`. Without it, the bench picks the provider with a key set, else `groq`. |
+| `--providers a,b` | Run on several providers at once (keys via env vars). |
+| `--all-providers` | Run on every provider that has a key configured. |
+| `--api-key XXX` | Key passed directly. Wins over env vars (single-provider runs). |
+| `--api-key-file F` | Read the key from a file. |
+| `--base-url URL` | Custom endpoint, for example a local server. Combine with `--provider custom`. |
+| `--models a,b,c` | Which models (single-provider runs only). |
+| `--all` | Test every chat model from `/models`. |
+| `--include-non-chat` | Also test STT/TTS/guard models. |
+| `--list-models` | Show models and stop. |
+| `--lang nl,en` | Only test these languages. |
+| `--all-langs` | Test all Handy languages. |
+| `--deep-only` | Skip smoke tests. |
+| `--prompt-file F` | Custom system prompt (default: `prompt.txt`). `${output}` is ignored, `${active_window}` gets filled in. |
+| `--active-window S` | Value for `${active_window}` (default: `VS Code`). |
+| `--known-models F` | Snapshot of known model ids (default: `models-known.json`). |
+| `--yes` | Accept new models without asking. |
+| `--concurrency N` | Parallel requests (default: 3). |
+| `--timeout S` | Timeout per request in seconds (default: 60). |
+| `--retries N` | Retries on 429/5xx with backoff (default: 3). |
+| `--out-json F` | JSON results (default: `results.json`). |
+| `--out-md F` | Markdown ranking (default: `results.md`). |
+| `--no-out` | Write no files. |
+| `--no-charts` | Skip regenerating the SVG charts. |
+| `--verbose` | Show every model output during the run. |
 
-## Hoe de score werkt
+## How scoring works
 
-Per model zie je het percentage geslaagde tests, het aantal geslaagd/totaal, de gemiddelde latency en per categorie waar het fout ging. De ranking sorteert op score en bij gelijkspel op snelheid. Daarna volgt een score per taal over alle modellen heen, zodat je ziet welke talen achterblijven.
+Per model you see the pass rate, passed/total, average latency and failing categories. The ranking sorts by score, then by speed. After that comes a per-language score across all models, so you can see which languages lag behind.
 
-`results.json` bevat alles: metadata, timing, elke output en elke gefaalde check. `results.md` is de korte ranking voor in een PR of issue.
+`results.json` holds everything: metadata, timing, every output and every failed check. `results.md` is the short ranking for a PR or issue. The SVG charts regenerate automatically after each run.
 
-## Eigen prompt gebruiken
+## Your own prompt
 
-Standaard gebruikt de benchmark `prompt.txt`, exact de Handy-prompt met `${output}` en `${active_window}`. Handy stuurt de transcriptie als apart user-bericht, dus de benchmark doet dat ook. Met `--prompt-file` wijs je een eigen prompt aan; dezelfde `${...}`-regels gelden.
+The default is `prompt.txt`, exactly the Handy prompt with `${output}` and `${active_window}`. Handy sends the transcript as a separate user message, so the bench does the same. With `--prompt-file` you point at your own prompt; the same `${...}` rules apply.
 
-## Als iets misgaat
+## GitHub Actions
 
-`Geen API-key`: zet de env-var voor je provider of gebruik `--api-key` of `--api-key-file`.
+Yes, it runs in CI. The workflow in `.github/workflows/bench.yml` starts manually from the Actions tab or weekly on Monday 06:00 UTC.
 
-`GET /models faalt`: de benchmark valt terug op bekende model-namen. Werkt dat niet, geef expliciet `--models` op.
+Add your keys as repo secrets (`GROQ_API_KEY`, `OPENROUTER_API_KEY`, ...), then pick a provider and options in the run dialog. The workflow uses `--concurrency 1 --retries 5 --yes`, uploads `results.json`, `results.md` and the charts as artifacts, and commits fresh charts back to `main` so this page stays current.
 
-`HTTP 429`: je raakt een rate limit. Verlaag `--concurrency` naar 1 en verhoog `--retries`.
+## If something breaks
 
-`HTTP 401`: je key klopt niet of hoort bij een andere provider. Check dat `--provider` past bij je key.
+`No working API key`: set the env var for your provider, or use `--api-key` or `--api-key-file`.
 
-Timeouts bij trage modellen: verhoog `--timeout`, bijvoorbeeld `--timeout 120`.
+`GET /models failed`: the bench falls back to known model names. If that fails too, pass explicit `--models`.
 
-## Bestanden
+`HTTP 429`: you hit a rate limit. Lower `--concurrency` to 1 and raise `--retries`.
 
-- `bench.mjs`: de benchmark zelf
-- `chart.mjs`: maakt `chart-models.svg` en `chart-langs.svg` uit `results.json` (`node chart.mjs`)
-- `prompt.txt`: de geteste systeem-prompt
-- `langs.mjs`: Handy-talen en het kernset
-- `cases.mjs`: strikte tests en smoke-teksten per taal
-- `results.json` / `results.md`: output van je laatste run (genegeerd door git)
+`HTTP 401`: your key is wrong or belongs to another provider. Check that `--provider` matches your key.
+
+`HTTP 403 model blocked`: the model is disabled in your provider project settings. The bench reports it per test and moves on.
+
+Timeouts on slow models: raise `--timeout`, for example `--timeout 120`.
+
+## Files
+
+- `bench.mjs`: the benchmark itself
+- `brand.mjs`: banner, colors and live progress bar
+- `chart.mjs`: builds `chart-models.svg`, `chart-langs.svg` and `chart-scatter.svg` (`node chart.mjs`)
+- `prompt.txt`: the tested system prompt
+- `langs.mjs`: Handy languages and the core set
+- `cases.mjs`: strict tests and smoke texts per language
+- `models-known.json`: snapshot for the new-model check
+- `results.json` / `results.md`: output of your latest run (ignored by git)
