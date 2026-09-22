@@ -12,7 +12,7 @@
 // Check-velden per testcase:
 //   contain: substrings die in de output moeten staan
 //   notContain: substrings die er niet in mogen staan
-//   match: regex-strings (zonder vlaggen, case-sensitive tenzij (?i) prefix)
+//   match: regex-strings (multiline-vlag staat al aan, geen inline-vlaggen)
 //   notMatch: regex-strings die niet mogen matchen
 //   exact: output moet na trimmen exact hieraan gelijk zijn
 
@@ -61,7 +61,7 @@ export const DEEP_CASES = [
     raw: "my shopping list apples bananas and milk",
     contain: ["apples", "bananas", "milk"],
     notContain: ["```"],
-    match: ["(?m)^\\s*[\\*\\-]\\s+\\S"],
+    match: ["^\\s*[\\*\\-]\\s+\\S"],
   },
   {
     id: "en-email", lang: "en", cat: "email",
@@ -130,7 +130,7 @@ export const DEEP_CASES = [
     raw: "boodschappenlijst appels bananen en melk",
     contain: ["appels", "bananen", "melk"],
     notContain: ["```"],
-    match: ["(?m)^\\s*[\\*\\-]\\s+\\S"],
+    match: ["^\\s*[\\*\\-]\\s+\\S"],
   },
   {
     id: "nl-alinea", lang: "nl", cat: "layout",

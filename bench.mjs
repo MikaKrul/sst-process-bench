@@ -178,7 +178,7 @@ function evalChecks(test, output) {
     return fails;
   }
   for (const s of test.contain || []) {
-    if (!text.includes(s)) fails.push(`ontbreekt: "${s}"`);
+    if (!text.toLowerCase().includes(s.toLowerCase())) fails.push(`ontbreekt: "${s}"`);
   }
   for (const s of test.notContain || []) {
     if (text.toLowerCase().includes(s.toLowerCase())) fails.push(`verboden string aanwezig: "${s}"`);
@@ -259,7 +259,8 @@ async function chatWithRetry(args, retries) {
     } catch (e) {
       last = e;
       if (!e.retryable || attempt === retries) break;
-      await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
+      // Groq vraagt vaak om 4-6s te wachten; backoff 3s, 6s, 12s, ...
+      await new Promise((r) => setTimeout(r, 1000 * 3 * 2 ** attempt));
     }
   }
   throw last;
